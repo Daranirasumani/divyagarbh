@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Garbha - You are the Creator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f5f2;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(to right, #9c2787, #c639a8);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo {
+            width: 180px;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #fff;
+            max-width: 700px;
+            margin: 0 auto;
+            margin-bottom: 1.5rem;
+        }
+        
+        .register-btn {
+            display: inline-block;
+            background-color: white;
+            color: #9c2787;
+            font-weight: bold;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-color: #f0f0f0;
+        }
+        
+        .classes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .class-card {
+            flex: 1 1 300px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .class-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .class-image {
+            height: 200px;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .class-image.preconception {
+            background-color: #9c2787;
+        }
+        
+        .class-image.pregnancy {
+            background-color: #b431a0;
+        }
+        
+        .class-image.postpartum {
+            background-color: #c639a8;
+        }
+        
+        .class-info {
+            padding: 1.5rem;
+        }
+        
+        .class-info h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .class-info p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #9c2787;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .registration {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .registration h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .submission-options {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .submission-options button {
+            flex: 1;
+        }
+        
+        .submission-options-text {
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        button {
+            background-color: #9c2787;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        
+        button:hover {
+            background-color: #7f1e6e;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366; /* WhatsApp green */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E; /* Darker WhatsApp green */
+        }
+        
+        .email-btn {
+            background-color: #4285F4; /* Google blue */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .email-btn:hover {
+            background-color: #3367D6; /* Darker blue */
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .benefits {
+            margin-bottom: 3rem;
+        }
+        
+        .benefits h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #9c2787;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 1rem;
+            color: #9c2787;
+        }
+        
+        .about-section {
+            background: linear-gradient(to right, #f0e6f2, #faeaf3);
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: 10px;
+        }
+        
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1 1 600px;
+        }
+        
+        .about-text h2 {
+            color: #9c2787;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-img {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+        
+        .about-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-section {
+            margin: 4rem 0;
+        }
+        
+        .program-section h2 {
+            text-align: center;
+            color: #9c2787;
+            margin-bottom: 2rem;
+        }
+        
+        .stage-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stage-card h3 {
+            color: #9c2787;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .stage-card h3 span {
+            background: #9c2787;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "✔";
+            color: #9c2787;
+            position: absolute;
+            left: 0;
+        }
+        
+        .faq-section {
+            margin: 4rem 0;
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            color: #9c2787;
+            margin-bottom: 2rem;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-item h3 {
+            color: #9c2787;
+            margin-bottom: 1rem;
+        }
+        
+        .call-to-action {
+            background: linear-gradient(to right, #9c2787, #c639a8);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+        
+        .call-to-action h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .register-cta-btn {
+            display: inline-block;
+            background-color: white;
+            color: #9c2787;
+            font-weight: bold;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+        }
+        
+        .register-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-color: #f0f0f0;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .emoji {
+            font-size: 1.5rem;
+        }
+        
+        /* Form success message */
+        .success-message {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        /* Form validation errors */
+        .error {
+            color: #ff0000;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+        
+        input.error-field, select.error-field, textarea.error-field {
+            border: 1px solid #ff0000;
+        }
+        
+        @media (max-width: 768px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero">
+            <img src="/api/placeholder/180/180" alt="Divya Garbha Logo" class="logo">
+            <h1>Divya Garbha</h1>
+            <p>You are the Creator - A Holistic Journey from Conception to Motherhood</p>
+            <a href="#register" class="register-btn">Register for a Class</a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="about-section">
+            <div class="container">
+                <div class="about-container">
+                    <div class="about-text">
+                        <h2>Online Pregnancy Yoga Classes</h2>
+                        <p>Pregnancy is a transformative journey, and taking care of your physical and emotional well-being is crucial. Our <strong>Online Pregnancy Yoga Classes</strong> provide a safe and supportive space for expecting mothers to practice gentle yoga from the comfort of their homes.</p>
+                        <p>These sessions focus on <strong>building strength, improving flexibility, and preparing the body for a smooth and natural delivery</strong>.</p>
+                    </div>
+                    <div class="about-img">
+                        <img src="/api/placeholder/400/300" alt="Prenatal Yoga Practice">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="benefits">
+            <h2>Why Join Our Online Pregnancy Yoga Classes?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Encourages Normal Delivery</h3>
+                    <p>Specially designed asanas help open the pelvis and strengthen key muscles for labor.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Reduces Pregnancy Discomforts</h3>
+                    <p>Relieves back pain, swelling, fatigue, and digestive issues.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Boosts Stamina & Flexibility</h3>
+                    <p>Prepares your body for labor and postpartum recovery.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Promotes Relaxation</h3>
+                    <p>Guided breathing techniques help calm the mind and reduce anxiety.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Improves Baby's Well-being</h3>
+                    <p>Enhances blood circulation, ensuring better oxygen supply to your baby.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <h2>What You'll Learn</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🧘‍♀️ Prenatal Asanas</h3>
+                    <p>Safe and effective yoga poses for pregnancy and normal delivery</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🌬️ Breathing Techniques</h3>
+                    <p>Pranayama exercises to ease labor pain and improve lung capacity</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>💆‍♀️ Meditation & Relaxation</h3>
+                    <p>Mindfulness practices for emotional balance</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🤰 Pelvic Opening Exercises</h3>
+                    <p>Strengthening and flexibility-enhancing movements to ease childbirth</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>👩‍⚕️ Expert Guidance</h3>
+                    <p>Learn from certified prenatal yoga instructors with experience in natural birthing support</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="program-section">
+            <h2>Garbh Sanskar - A Holistic Journey from Conception to Motherhood</h2>
+            
+            <div class="about-container" style="margin-bottom: 2rem;">
+                <div class="about-text">
+                    <h3>What is Garbh Sanskar?</h3>
+                    <p>Garbh Sanskar is an ancient Indian practice that focuses on nurturing the mind, body, and soul of both the mother and baby through yoga, meditation, mantras, music, positive affirmations, and Ayurvedic wisdom. It is based on the belief that a child's physical, mental, and emotional well-being begins even before conception and continues throughout pregnancy and postpartum.</p>
+                    <p>This practice is now supported by modern science, proving that a mother's thoughts, emotions, and lifestyle influence the baby's growth. Our Garbh Sanskar Program is a structured, research-backed course designed to support parents through every stage of their journey—before conception, during pregnancy, and after childbirth.</p>
+                </div>
+            </div>
+            
+            <h3>3-Stage Garbh Sanskar Program</h3>
+            
+            <div class="stage-card">
+                <h3><span>1</span> Preconception Garbh Sanskar (Before Pregnancy)</h3>
+                <p>The journey of a healthy and conscious pregnancy begins before conception. This phase prepares both partners—physically, emotionally, and spiritually—to welcome a healthy, intelligent, and virtuous baby.</p>
+                
+                <h4>What You'll Learn in Preconception Garbh Sanskar:</h4>
+                <ul class="feature-list">
+                    <li>Detoxification & Body Purification — Ayurvedic diet & practices for fertility enhancement</li>
+                    <li>Mindful Conception Planning — Creating a positive mindset and emotional readiness</li>
+                    <li>Yoga & Meditation for Fertility — Balancing hormones and preparing the womb</li>
+                    <li>Mantra & Energy Healing — Spiritual techniques to attract a healthy soul</li>
+                    <li>Role of Father in Garbh Sanskar — How both parents' energies influence the baby's destiny</li>
+                </ul>
+            </div>
+            
+            <div class="stage-card">
+                <h3><span>2</span> Pregnancy Garbh Sanskar (During Pregnancy)</h3>
+                <p>Pregnancy is a sacred period that shapes the baby's physical and mental development. Our program helps mothers stay healthy, positive, and spiritually aligned while fostering a deep connection with their unborn child.</p>
+                
+                <h4>What You'll Learn in Pregnancy Garbh Sanskar:</h4>
+                <ul class="feature-list">
+                    <li>Prenatal Yoga & Breathing Techniques — Preparing the body for a smooth and normal delivery</li>
+                    <li>Music Therapy & Mantra Chanting — Enhancing the baby's intelligence & emotional balance</li>
+                    <li>Ayurvedic Diet for Each Trimester — Foods that nourish both mother & baby</li>
+                    <li>Positive Affirmations & Emotional Well-being — Programming the baby's subconscious mind</li>
+                    <li>Storytelling & Spiritual Wisdom — Building a strong moral foundation</li>
+                    <li>Relaxation Techniques & Stress Management — Keeping the mother calm and joyful</li>
+                </ul>
+            </div>
+            
+            <div class="stage-card">
+                <h3><span>3</span> Post-Pregnancy Garbh Sanskar (After Birth)</h3>
+                <p>The postpartum phase is as important as pregnancy. A mother's physical recovery, emotional well-being, and the baby's early growth require special care, nourishment, and positive surroundings.</p>
+                
+                <h4>What You'll Learn in Post-Pregnancy Garbh Sanskar:</h4>
+                <ul class="feature-list">
+                    <li>Postnatal Yoga & Recovery Practices — Strengthening the body after childbirth</li>
+                    <li>Ayurvedic Nutrition for Lactation — Foods that enhance milk production & energy levels</li>
+                    <li>Infant Brain Development Practices — How to nurture a calm, happy, and intelligent baby</li>
+                    <li>Music & Mantras for Newborns — Sounds that promote early brain development</li>
+                    <li>Emotional Well-being for New Mothers — Overcoming stress & postpartum blues</li>
+                    <li>Parenting with Love & Consciousness — Raising a confident and spiritually connected child</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="benefits">
+            <h2>Benefits of Garbh Sanskar Course</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>For Baby</h3>
+                    <ul class="feature-list">
+                        <li>Enhances IQ, EQ, and cognitive abilities</li>
+                        <li>Encourages a positive and joyful nature</li>
+                        <li>Strengthens immune system and overall health</li>
+                        <li>Promotes better sleep patterns and calmness after birth</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <h3>For Mother</h3>
+                    <ul class="feature-list">
+                        <li>Reduces pregnancy stress, anxiety, and mood swings</li>
+                        <li>Helps in better labor preparation and easy delivery</li>
+                        <li>Balances hormones and supports postpartum recovery</li>
+                        <li>Increases energy levels and overall well-being</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <h3>For Family</h3>
+                    <ul class="feature-list">
+                        <li>Strengthens family bonding and spiritual connection</li>
+                        <li>Promotes a peaceful and harmonious home environment</li>
+                        <li>Encourages conscious and mindful parenting</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="classes">
+            <div class="class-card">
+                <div class="class-image preconception">Preconception</div>
+                <div class="class-info">
+                    <h3>Preconception Garbh Sanskar</h3>
+                    <p>For couples planning to conceive. Prepare your body, mind, and spirit for welcoming a healthy and intelligent baby.</p>
+                    <p><strong>Duration:</strong> 1 hour/day</p>
+                    <p><strong>Mode:</strong> 100% Online — Join from anywhere!</p>
+                </div>
+            </div>
+            
+            <div class="class-card">
+                <div class="class-image pregnancy">Pregnancy</div>
+                <div class="class-info">
+                    <h3>Pregnancy Garbh Sanskar</h3>
+                    <p>For expecting mothers from 12 weeks onwards. Nurture your baby's development while preparing for a smooth delivery.</p>
+                    <p><strong>Duration:</strong> 1 hour/day</p>
+                    <p><strong>Mode:</strong> 100% Online — Join from anywhere!</p>
+                </div>
+            </div>
+            
+            <div class="class-card">
+                <div class="class-image postpartum">Post-Pregnancy</div>
+                <div class="class-info">
+                    <h3>Post-Pregnancy Garbh Sanskar</h3>
+                    <p>For new mothers looking for postnatal recovery & baby development guidance. Heal, recover, and nurture your newborn.</p>
+                    <p><strong>Duration:</strong> 1 hour/day</p>
+                    <p><strong>Mode:</strong> 100% Online — Join from anywhere!</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            
+            <div class="faq-item">
+                <h3>When should I start Garbh Sanskar?</h3>
+                <p>✔️ If you are planning a baby — Start Preconception Garbh Sanskar<br>
+                ✔️ If you are pregnant — Start from 12 weeks onwards<br>
+                ✔️ If you are a new mother — Start Postnatal Garbh Sanskar after childbirth</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can I join if I have pregnancy complications?</h3>
+                <p>Yes, but we recommend consulting your doctor. Our practices are customized as per individual needs.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>How does Garbh Sanskar impact my baby's intelligence?</h3>
+                <p>Scientific research shows that a baby's brain starts developing in the womb. Yoga, music, meditation, and positive affirmations strengthen neural connections, enhancing memory, emotional stability, and intelligence.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Will Garbh Sanskar help with normal delivery?</h3>
+                <p>Yes! Our yoga, breathing exercises, and meditation techniques help prepare the body for smooth labor and natural childbirth.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can my partner participate in this course?</h3>
+                <p>Absolutely! Involving the father and family members enhances bonding and emotional well-being.</p>
+            </div>
+        </div>
+        
+        <section class="call-to-action">
+            <h2>Join Us & Experience a Divine Pregnancy Journey!</h2>
+            <p>Empower yourself with the ancient wisdom of Garbh Sanskar and give your baby the best start in life.</p>
+            
+            <a href="#register" class="register-cta-btn">Register Now</a>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="emoji">📞</span> Call/WhatsApp: +919008809300
+                </div>
+                <div class="contact-item">
+                    <span class="emoji">📩</span> Email: infodivyagarbha@gmail.com
+                </div>
+            </div>
+        </section>
+        
+        <section class="registration" id="register">
+            <h2>Register for a Class</h2>
+            <form id="registrationForm" action="mailto:infodivyagarbha@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="firstName">First Name*</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Last Name*</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="programType">Program Type*</label>
+                    <select id="programType" name="programType" required>
+                        <option value="">--Select a program--</option>
+                        <option value="preconception">Preconception Garbh Sanskar</option>
+                        <option value="pregnancy">Pregnancy Garbh Sanskar</option>
+                        <option value="postpartum">Post-Pregnancy Garbh Sanskar</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dueDate">Expected Due Date (if pregnant)</label>
+                    <input type="date" id="dueDate" name="dueDate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="weeks">Pregnancy Weeks (if applicable)</label>
+                    <input type="number" id="weeks" name="weeks" min="1" max="42">
+                </div>
+                
+                <div class="form-group">
+                    <label for="yogaExperience">Your Yoga Experience</label>
+                    <select id="yogaExperience" name="yogaExperience">
+                        <option value="none">None (Beginner)</option>
+                        <option value="beginner">Some experience (Less than 6 months)</option>
+                        <option value="intermediate">Regular practice (6 months+)</option>
+                        <option value="advanced">Advanced practitioner</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="health">Health Information & Special Requirements</label>
+                    <textarea id="health" name="health" placeholder="Please share any pregnancy-related concerns, conditions, or special requirements we should know about..."></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <p class="submission-options-text">Choose how you'd like to submit your registration:</p>
+                    <div class="submission-options">
+                        <button type="submit" class="email-btn">
+                            <span class="emoji">📧</span> Submit via Email
+                        </button>
+                        <button type="button" class="whatsapp-btn" onclick="sendViaWhatsApp(); return false;">
+                            <span class="emoji">📱</span> Send via WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Divya Garbha. All rights reserved.</p>
+            <p>Phone: +919008809300 | Email: infodivyagarbha@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show a help tooltip for registration options
+            const formElement = document.querySelector('.registration');
+            const infoDiv = document.createElement('div');
+            infoDiv.style.marginBottom = '20px';
+            infoDiv.style.padding = '10px';
+            infoDiv.style.backgroundColor = '#f5f5f5'; 
+            infoDiv.style.borderRadius = '5px';
+            infoDiv.style.fontSize = '0.9rem';
+            infoDiv.innerHTML = '<strong>Note:</strong> Choose how you would like to submit your registration. ' + 
+                                'Email submission will open your default email client with the form data, or you can ' +
+                                'send the information directly via WhatsApp.';
+            
+            const heading = formElement.querySelector('h2');
+            heading.parentNode.insertBefore(infoDiv, heading.nextSibling);
+            
+            // Add a formSubmit event handler for email submissions
+            const form = document.getElementById('registrationForm');
+            form.addEventListener('submit', function(e) {
+                // Format the subject line
+                const subject = "New Divya Garbha Registration: " + 
+                                document.getElementById('firstName').value + " " +
+                                document.getElementById('lastName').value;
+                
+                // Create a properly formatted mailto link with subject
+                const mailtoLink = "mailto:infodivyagarbha@gmail.com?subject=" + 
+                                   encodeURIComponent(subject) + 
+                                   "&body=" + encodeURIComponent(formatEmailBody());
+                
+                // Update the form action
+                form.setAttribute('action', mailtoLink);
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 50,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        
+        function formatEmailBody() {
+            // Get form values
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const programType = document.getElementById('programType').value;
+            const dueDate = document.getElementById('dueDate').value ? `Due Date: ${document.getElementById('dueDate').value}` : 'Due Date: N/A';
+            const weeks = document.getElementById('weeks').value ? `Pregnancy Weeks: ${document.getElementById('weeks').value}` : 'Pregnancy Weeks: N/A';
+            const yogaExperience = document.getElementById('yogaExperience').value;
+            const health = document.getElementById('health').value || 'None specified';
+            
+            // Format message
+            return `New Divya Garbha Registration
+
+Personal Information:
+Name: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone}
+
+Program Details:
+Selected Program: ${programType}
+${dueDate}
+${weeks}
+Yoga Experience: ${yogaExperience}
+
+Health Information & Special Requirements:
+${health}
+
+Thank you for your interest in Divya Garbha!`;
+        }
+        
+        function sendViaWhatsApp() {
+            // Validate the form first
+            const form = document.getElementById('registrationForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return false;
+            }
+            
+            // Get form values
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const programType = document.getElementById('programType').value;
+            const dueDate = document.getElementById('dueDate').value ? `Due Date: ${document.getElementById('dueDate').value}` : 'Due Date: N/A';
+            const weeks = document.getElementById('weeks').value ? `Pregnancy Weeks: ${document.getElementById('weeks').value}` : 'Pregnancy Weeks: N/A';
+            const yogaExperience = document.getElementById('yogaExperience').value;
+            const health = document.getElementById('health').value || 'None specified';
+            
+            // Format message
+            const message = `*New Divya Garbha Registration*
+            
+*Personal Information:*
+Name: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone}
+
+*Program Details:*
+Selected Program: ${programType}
+${dueDate}
+${weeks}
+Yoga Experience: ${yogaExperience}
+
+*Health Information & Special Requirements:*
+${health}
+
+Thank you for registering with Divya Garbha!`;
+            
+            // Encode for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Open WhatsApp with pre-filled message (using your number)
+            window.open(`https://wa.me/919008809300?text=${encodedMessage}`, '_blank');
+            
+            return false; // Prevent form submission
+        }
+    </script>
+    </script>
